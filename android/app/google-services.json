@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "651713903279",
+    "project_id": "motomech-2e181",
+    "storage_bucket": "motomech-2e181.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651713903279:android:b3a6fb08d384d76fcdf25a",
+        "android_client_info": {
+          "package_name": "com.weblozee.motomech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651713903279-88mu6mq2slap3q5oillpqbp5r8u3bub5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD01dMSEZ9F7KMN4APVBx5O1JvfqASmkGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651713903279-88mu6mq2slap3q5oillpqbp5r8u3bub5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
