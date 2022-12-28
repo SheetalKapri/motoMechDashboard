@@ -12,26 +12,23 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   final postController = TextEditingController();
-  final Color iconColor = const Color.fromARGB(255, 2, 88, 80);
+  final Color iconColor = const Color.fromRGBO(5, 75, 70, 1);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(146, 3, 100, 79),
+      backgroundColor: const Color.fromRGBO(5, 75, 70, 1),
       body: Row(
         children: <Widget>[
-          // Container(
-          //   width: MediaQuery.of(context).size.width / 6,
-          //   height: 900,
-          //   color: const Color.fromARGB(255, 2, 88, 80),
-          //   child: const SafeArea(
-          //     child: AppDrawer(),
-          //   ),
-          // ),
-
           Expanded(
             child: Container(
+              decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25),
+                bottomLeft: Radius.circular(25),
+              ),
               color: Colors.grey,
+            ),
               padding: const EdgeInsets.all(50.0),
               child: GridView.count(
                 crossAxisCount: 3,

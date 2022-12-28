@@ -17,18 +17,16 @@ class _MainDashboardState extends State<MainDashboard> {
     return Scaffold(
       body: Row(
         children: <Widget>[
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width / 6,
             height: 900,
-            color: const Color.fromARGB(255, 2, 88, 80),
-            child: const SafeArea(
-              child: AppDrawer(),
-            ),
+            //color: const Color.fromARGB(255, 2, 88, 80),
+            child: const AppDrawer(),
           ),
 
           Expanded(
             child: Container(
-              color: const Color.fromARGB(255, 37, 37, 35),
+              color: const Color.fromRGBO(5, 75, 70, 1),
               child: const Dashboard(),
             ),
           ),

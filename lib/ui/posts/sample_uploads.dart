@@ -45,7 +45,7 @@ class _SampleUploadsState extends State<SampleUploads> {
           Container(
             width: MediaQuery.of(context).size.width / 6,
             height: 900,
-            color: const Color.fromARGB(255, 2, 88, 80),
+            color: const Color.fromRGBO(5, 75, 70, 1),
             child: const SafeArea(
               child: AppDrawer(),
             ),
@@ -53,7 +53,13 @@ class _SampleUploadsState extends State<SampleUploads> {
 
           Expanded(
             child: Container(
+              decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25),
+                bottomLeft: Radius.circular(25),
+              ),
               color: Color.fromARGB(72, 196, 192, 192),
+            ),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(20),

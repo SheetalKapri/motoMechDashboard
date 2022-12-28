@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../app_state/appstate.dart';
 
 class AllCategories extends StatefulWidget {
-  AllCategories({Key? key}) : super(key: key);
+  const AllCategories({Key? key}) : super(key: key);
 
   @override
   _AllCategoriesState createState() => _AllCategoriesState();
@@ -66,11 +66,11 @@ class MechanicWidget extends StatelessWidget {
         SizedBox(
           width: 10,
         ),
-        Text(appState.mechanicList[index].mechPhone.toString()),
+        Text(appState.mechanicList[index].mechPhone),
         SizedBox(
           width: 10,
         ),
-        Text(appState.mechanicList[index].mechAddress.pincode)
+        //Text(appState.mechanicList[index].mechAddress.pincode)
       ]),
     );
   }

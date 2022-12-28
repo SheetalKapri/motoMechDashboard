@@ -3,6 +3,7 @@ import 'package:motomechdashboard/controller/data_controller.dart';
 import '../posts/sample_uploads.dart';
 import 'all_categories.dart';
 //import 'dashboard.dart';
+import 'all_mech_screen.dart';
 import 'dashboardr2.dart';
 //import 'main_dashboard.dart';
 
@@ -14,114 +15,128 @@ class AppDrawer extends StatefulWidget {
 }
 
 class _AppDrawerState extends State<AppDrawer> {
-  bool click = true;
+    final List<String> _titleList = [
+    "Dashboard",
+    "Mechanics",
+    "Customers",
+    "Jobs",
+    "Verify Mechanic",
+    "Verify Assistant",
+    "Traffic",
+    "Reviews",
+    "Sample Uploads"
+  ];
+
+  final List<bool> _isSelectedList = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
+
+  final List<Icon> _leadingIcon = [
+     const Icon(
+      Icons.home,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.person,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.person,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.plumbing_outlined,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.verified_rounded,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.verified_rounded,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.monitor_heart_rounded,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.rate_review,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.add_business,
+      color: Colors.white,
+    ),
+  ];
+
+  int selectedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
-    //return buttonSection;
+  return Scaffold(
+      backgroundColor: const Color.fromRGBO(5, 75, 70, 1),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 100,left: 10),
+        child: ListView.separated(
+          itemCount: _titleList.length,
+          separatorBuilder: (BuildContext context, int index) => const Divider(
+            height: 5,    
+            //color:  Color.fromARGB(255, 2, 88, 80),
+            color:  Color.fromRGBO(5, 75, 70, 1),
+            thickness: 0.1,
+          ),
+          itemBuilder: (BuildContext context, int index) => ListTile(
+            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(25),bottomLeft: Radius.circular(25))),
+            tileColor: selectedIndex == index ? Colors.grey :  const Color.fromRGBO(5, 75, 70, 1),
+            leading: _leadingIcon[index] ,  
+            title: Text( _titleList[index],
+              style:  TextStyle(
+                color: selectedIndex == index ?Colors.black :Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 20,
+              ),
+            ),
+            onTap: () {
+              setState(() {
+                selectedIndex = index;
+                _isSelectedList[index] = !_isSelectedList[index];
 
-    return SafeArea(
-      child: Container(
-        width: 220,
-        color: const Color.fromARGB(146, 3, 100, 79),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 100,left: 10),
-          child: ListView(
-            children: [
-              ListTile(
-                leading: const Icon(Icons.home,color: Colors.white,),
-                title: const Text('Dashboard'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(213, 22, 1, 1),
-                onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => const DashSecond()));},
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-                title: const Text('Mechanics'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {
+                if (index == 0) {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => GetDetails()));
-                },
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-                title: const Text('Customer'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.plumbing_outlined,
-                  color: Colors.white,
-                ),
-                title: const Text('Jobs'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.verified_rounded,
-                  color: Colors.white,
-                ),
-                title: const Text('Verify Mechanic'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.verified_rounded,
-                  color: Colors.white,
-                ),
-                title: const Text('Verify Assistant'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.monitor_heart_rounded,
-                  color: Colors.white,
-                ),
-                title: const Text('Traffic'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: const Icon(Icons.rate_review),
-                iconColor: Colors.white,
-                title: const Text('Reviews'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.add_business,
-                  color: Colors.white,
-                ),
-                title: const Text('Sample uploads'),
-                textColor: Colors.white,
-                selectedTileColor: const Color.fromARGB(214, 85, 83, 83),
-                onTap: () {
+                      MaterialPageRoute(
+                          builder: (context) => const DashSecond()));
+                } else if (index == 1) {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>  SampleUploads())
-                      // to transit to next page >PostScreen
-                      );
-                },
-              ),
-            ],
+                      MaterialPageRoute(
+                          builder: (context) => const AllMechanic()));
+                } else if (index == 2) {
+
+                }else if (index ==3){
+
+                }else if (index ==4){
+                  
+                }else if (index ==5){
+                  
+                }else if (index ==6){
+                  
+                }else if (index ==7){
+                  
+                }else if (index ==8){
+                   Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>  SampleUploads()));
+                }
+
+              });
+            },
           ),
         ),
       ),

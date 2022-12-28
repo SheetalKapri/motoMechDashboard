@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/auth/login_screen.dart';
 import '../ui/auth/signup_screen.dart';
+//import '../ui/screens/main_dashboard.dart';
 
 
 class SplashServices {
@@ -24,7 +25,8 @@ class SplashServices {
       Timer(
           const Duration(seconds: 2),
           () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => const SignupScreen()))
+            context, MaterialPageRoute(builder: (context) => const SignupScreen()))
+           //context, MaterialPageRoute(builder: (context) => const Sheetal()))
           // else send to signupScreen
           );
     }
