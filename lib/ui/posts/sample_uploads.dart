@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../../controller/data_controller.dart';
 import '../../widgets/roundButton.dart';
-import '../screens/all_categories.dart';
-import '../screens/all_mech_screen.dart';
 import '../screens/drawer_screen.dart';
 //import '../screens/drawer_screen.dart';
 
@@ -111,10 +108,7 @@ class _SampleUploadsState extends State<SampleUploads> {
                   RoundButton(
                     title: 'Display all Data',
                     onTap:(){
-                      Navigator.push(context,
-                          MaterialPageRoute(
-                              builder: (context)=>  AllCategories())
-                      );
+
                       } ,
                   ),
                 ],

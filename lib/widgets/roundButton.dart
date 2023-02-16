@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motomechdashboard/utils/constants.dart';
 
 class RoundButton extends StatelessWidget {
   final String title;   //since used everywhere
@@ -17,8 +18,9 @@ class RoundButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 50,
+        width: MediaQuery.of(context).size.width*0.3,
         decoration: BoxDecoration(
-            color: const Color.fromRGBO(5, 75, 70, 1),
+            color: primaryColor,
             borderRadius: BorderRadius.circular(10)
         ),
 

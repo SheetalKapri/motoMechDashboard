@@ -69,86 +69,92 @@ class _LoginScreenState extends State<LoginScreen> {
         automaticallyImplyLeading: false,   // to remove the back button
         title: const Text('Login'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:20),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Form(
                 key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      // to take input email from user
-                      keyboardType: TextInputType.text,
-                      controller: emailController,
-                      decoration: const InputDecoration(
-                          hintText: 'Email',
-                          //helperText: 'Enter email eg. jon@email.com',   //to show help option
-                          prefixIcon: Icon(Icons.alternate_email)
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+                  margin: const EdgeInsets.all(40.0),
+                  height: 400,
+                  width: 700,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(color: Colors.teal.shade800,
+                      blurRadius: 15.0,spreadRadius: 5.0,offset: Offset(5.0,5.0))
+                    ] ),
+
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        // to take input email from user
+                        keyboardType: TextInputType.text,
+                        controller: emailController,
+                        decoration: const InputDecoration(
+                            hintText: 'Email',
+                            //helperText: 'Enter email eg. jon@email.com',   //to show help option
+                            prefixIcon: Icon(Icons.alternate_email)
+                        ),
+
+                        //to make it a necessary field
+                        validator: (value){
+                          if(value!.isEmpty){
+                            return 'Enter email';
+                          }
+                          return null;
+                        },
                       ),
+                      const SizedBox(height: 20,),
+                      TextFormField(
+                        // to take input password from user
+                        keyboardType: TextInputType.text,
+                        controller: passwordController,
+                        obscureText: true, //to make it look encrypted
+                        decoration: const InputDecoration(
+                            hintText: 'Password',
+                            prefixIcon: Icon(Icons.lock_open_outlined)
+                        ),
 
-                      //to make it a necessary field
-                      validator: (value){
-                        if(value!.isEmpty){
-                          return 'Enter email';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 20,),
-                    TextFormField(
-                      // to take input password from user
-                      keyboardType: TextInputType.text,
-                      controller: passwordController,
-                      obscureText: true, //to make it look encrypted
-                      decoration: const InputDecoration(
-                          hintText: 'Password',
-                          prefixIcon: Icon(Icons.lock_open_outlined)
+                        //to make it a necessary field
+                        validator: (value){
+                          if(value!.isEmpty){
+                            return 'Enter email';
+                          }
+                          return null;
+                        },
                       ),
-
-                      //to make it a necessary field
-                      validator: (value){
-                        if(value!.isEmpty){
-                          return 'Enter email';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 20,),
-                  ],
-
-                )
-            ),
-
-            const SizedBox(height: 20,),
-            RoundButton(
-              title: 'Login',
-              loading: loading,
-              onTap:(){
-                if(_formKey.currentState!.validate()){
-                  //no stmt to make email and password necessary
-                  login();
-                }
-              } ,
-            ),
-            const SizedBox(height: 20,),
-            Row(
-              children: [
-                const Text("Dont' have account??"),
-                TextButton(onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (context)=> const SignupScreen())
-                  );
-                },
-                    child: const Text("Sign Up")
-                )
-              ],
-            ),
-            const SizedBox(height: 30,),
-            InkWell(
+                      const SizedBox(height: 20,),
+                      RoundButton(
+                        title: 'Login',
+                        loading: loading,
+                        onTap:(){
+                          if(_formKey.currentState!.validate()){
+                            //no stmt to make email and password necessary
+                            login();
+                          }
+                        } ,
+                      ),
+                      const SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          const Text("Dont' have account??"),
+                          TextButton(onPressed: (){
+                            Navigator.push(context,
+                                MaterialPageRoute(
+                                    builder: (context)=> const SignupScreen())
+                            );
+                          },
+                              child: const Text("Sign Up")
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 30,),
+                      InkWell(
               onTap: (){
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const LoginWithPhoneNo())
@@ -169,6 +175,12 @@ class _LoginScreenState extends State<LoginScreen> {
             )
 
 
+                    ],
+                  ),
+                )
+            ),
+
+            
           ]
         )
       ),

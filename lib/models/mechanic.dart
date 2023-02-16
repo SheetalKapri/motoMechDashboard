@@ -42,35 +42,3 @@ class MechAddress {
         area = jsonData['area'];
 }
 
-
-
-
-
-// ///////////////////
-// ///fetchProductCategory AppState:
-// js_primitives.dart:30 FIREBASE SERVICE FUNC fetchProductCategory
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 0
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 1
-// js_primitives.dart:30 in firebase services
-// js_primitives.dart:30 fetchProductCategory AppState:
-// js_primitives.dart:30 FIREBASE SERVICE FUNC fetchProductCategory
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 0
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 1
-// js_primitives.dart:30 in firebase services
-// js_primitives.dart:30 fetchProductCategory AppState:
-// js_primitives.dart:30 FIREBASE SERVICE FUNC fetchProductCategory
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 0
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 1
-// js_primitives.dart:30 in firebase services
-// js_primitives.dart:30 fetchProductCategory AppState:
-// js_primitives.dart:30 FIREBASE SERVICE FUNC fetchProductCategory
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 0
-// js_primitives.dart:30 ALLCATEGORIES
-// js_primitives.dart:30 1

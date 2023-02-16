@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../ui/auth/login_screen.dart';
-import '../ui/auth/signup_screen.dart';
-//import '../ui/screens/main_dashboard.dart';
+import 'package:motomechdashboard/ui/auth/login_screen.dart';
+import 'package:motomechdashboard/ui/auth/signup_screen.dart';
 
 
 class SplashServices {
@@ -18,7 +16,7 @@ class SplashServices {
           const Duration(seconds: 2),
           () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => const LoginScreen()))
-            //context, MaterialPageRoute(builder: (context) => const MainDashboard()))
+            //context, MaterialPageRoute(builder: (context) =>  const AllMechanic()))
           // if not already loged in then transit to login screen page
           );
     } else {
@@ -26,7 +24,7 @@ class SplashServices {
           const Duration(seconds: 2),
           () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => const SignupScreen()))
-           //context, MaterialPageRoute(builder: (context) => const Sheetal()))
+           //context, MaterialPageRoute(builder: (context) =>   const AllMechanic()))
           // else send to signupScreen
           );
     }

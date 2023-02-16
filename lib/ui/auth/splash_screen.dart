@@ -25,11 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
               color: Colors.teal, fontWeight: FontWeight.bold,decorationStyle: TextDecorationStyle.double,
               decorationThickness: 2.0,letterSpacing: 3,fontSize: 30,),
         )
-
-        // Text("Moto Mech App",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.cyan,
-        //     fontSize: 30),
-        // ),
-
       )
     );
   }

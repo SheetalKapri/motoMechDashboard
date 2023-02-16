@@ -43,6 +43,14 @@ dependencies:
   fluttertoast: ^8.1.1
   firebase_database: ^10.0.5
   provider: ^6.0.5
+  geolocator: ^9.0.2
+  google_maps_flutter: ^2.2.3
+  google_maps_flutter_web: ^0.4.0+5
+  flutter_polyline_points: ^1.0.0
+  location: ^4.4.0
+
+  timeline_tile: ^2.0.0
+
 
 dev_dependencies:
   flutter_test:

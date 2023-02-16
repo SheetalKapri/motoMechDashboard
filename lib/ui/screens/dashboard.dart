@@ -16,33 +16,24 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(5, 75, 70, 1),
-      body: Row(
+    return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(25),
+          bottomLeft: Radius.circular(25),
+        ),
+        color: Colors.grey,
+      ),
+      padding: const EdgeInsets.all(50.0),
+      child: GridView.count(
+        crossAxisCount: 3,
         children: <Widget>[
-          Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25),
-                bottomLeft: Radius.circular(25),
-              ),
-              color: Colors.grey,
-            ),
-              padding: const EdgeInsets.all(50.0),
-              child: GridView.count(
-                crossAxisCount: 3,
-                children: <Widget>[
-                  MyMenu(title: "Mechanics", icon: Icons.account_balance, warna: iconColor,collName: 'mechanic'),
-                  MyMenu(title: "Customers", icon: Icons.account_balance, warna: iconColor,collName: 'customer'),
-                  MyMenu(title: "Verified Mechanics", icon: Icons.account_balance, warna: iconColor,collName: 'users'),
-                  MyMenu(title: "Verified Assistant", icon: Icons.account_balance, warna: iconColor,collName: 'mechanic'),
-                  MyMenu(title: "Pending Verification", icon: Icons.account_balance, warna: iconColor,collName: 'testing'),
+          MyMenu(title: "Mechanics", icon: Icons.account_balance, warna: iconColor,collName: 'mechanic'),
+          MyMenu(title: "Customers", icon: Icons.account_balance, warna: iconColor,collName: 'customer'),
+          MyMenu(title: "Verified Mechanics", icon: Icons.account_balance, warna: iconColor,collName: 'users'),
+          MyMenu(title: "Verified Assistant", icon: Icons.account_balance, warna: iconColor,collName: 'mechanic'),
+          MyMenu(title: "Pending Verification", icon: Icons.account_balance, warna: iconColor,collName: 'testing'),
 
-                ],
-              ),
-            ),
-          ),
         ],
       ),
     );
@@ -58,19 +49,16 @@ class MyMenu extends StatelessWidget {
   final String collName;
   int count=0;
 
-
-
   @override
   Widget build(BuildContext context) {
-
     return Card(
       margin: const EdgeInsets.all(20.0),
       child: InkWell(
         onTap: (){ },
-        splashColor: Colors.lightGreen,
+        splashColor: Colors.teal.shade800,
         child: Center(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            //mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Icon(icon, size: 60.0,color: warna,),
               const SizedBox(height: 10,),

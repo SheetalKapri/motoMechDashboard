@@ -1,31 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:motomechdashboard/ui/auth/splash_screen.dart';
+import 'package:motomechdashboard/ui/screens/all_jobs_screen.dart';
+import 'package:motomechdashboard/ui/screens/all_mech_screen.dart';
+import 'package:motomechdashboard/ui/screens/main_dashboard.dart';
+import 'package:motomechdashboard/ui/screens/trackJobScreen.dart';
 import 'package:provider/provider.dart';
 
 import 'app_state/appstate.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (kIsWeb)
-  {
-      await Firebase.initializeApp(
+  if (kIsWeb) {
+    await Firebase.initializeApp(
       options: const FirebaseOptions(
-      apiKey: "AIzaSyD01dMSEZ9F7KMN4APVBx5O1JvfqASmkGo",
-      appId: "1:651713903279:android:b3a6fb08d384d76fcdf25a",
-      messagingSenderId: "651713903279",
-      projectId: "motomech-2e181",
+        apiKey: "AIzaSyD01dMSEZ9F7KMN4APVBx5O1JvfqASmkGo",
+        appId: "1:651713903279:android:b3a6fb08d384d76fcdf25a",
+        messagingSenderId: "651713903279",
+        projectId: "motomech-2e181",
       ),
     );
-
+  } else {
+    await Firebase.initializeApp();
   }
-
-else
-  await Firebase.initializeApp();
   runApp(MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -35,7 +34,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
@@ -45,9 +43,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          appBarTheme: const AppBarTheme(color: Color.fromRGBO(5, 75, 70, 1),),
-          primarySwatch: Colors.indigo,
+          appBarTheme: const AppBarTheme(
+            color: Color.fromRGBO(5, 75, 70, 1),
           ),
+          primarySwatch: Colors.indigo,
+        ),
         home: FutureBuilder(
             future: _initialization,
             builder: (context, snapshot) {
@@ -55,14 +55,12 @@ class MyApp extends StatelessWidget {
                 print("Error");
               }
               if (snapshot.connectionState == ConnectionState.done) {
-                return const SplashScreen();
-                //return MainDashboard();
+                //return const SplashScreen();
+                return const AllJobs();
               }
               return const CircularProgressIndicator();
             }),
-    )
-          ,
+      ),
     );
   }
 }
-
